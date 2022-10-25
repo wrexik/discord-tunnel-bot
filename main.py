@@ -20,7 +20,7 @@ from traitlets import default
 bot_name = "Sitara"                               #change to your's bot name
 default_activity = "Tvoji Mamu 🤭"               #sets activity after connecting to dc
 twitch_username = "notwrexik"                    #your twitch username (lowercase only pls :D) ofc you can let it be like that 😉
-bot_secret = "" #paste your bot secret
+bot_secret = "OTEyNjk1ODE5NDY2MDQ3NTc4.GGfuH-.efTUhCNHeVmsXVH2nX2ZYOlsTJDFQKHl8uRobM" #paste your bot secret
 port = "25565"                                   #your minecraft server port
 bot_pfp = "https://i.postimg.cc/63vzgSPN/round-sitara.png" #your's bot profile picture
 
@@ -155,6 +155,40 @@ async def restart(ctx):
 
 #End of ngrok part
 
+@client.event 
+async def on_command_error(ctx, error): 
+    if isinstance(error, commands.CommandNotFound): 
+        em = discord.Embed(title=f"Error!!!", description=f"Command not found. Try **!h**")
+        await ctx.send(f'{ctx.author.mention}'" Command not found. Try **!h**")
+
+
+@bot.command(aliases=["creator", "wrexik"])
+async def git(ctx):
+    await ctx.send(f'{ctx.author.mention}'" this is my creator https://github.com/wrexik")
+
+
+
+
+
+@bot.command(aliases=["h"])
+async def pomoct(ctx):
+    embed = discord.Embed(title='Help - !h', color = 0xbb00ff)
+    embed.add_field(name="!status - Get's status of the server", value= '1')
+    embed.add_field(name="!ip - Send's IP of the tunnel (server)", value= '2')
+    embed.add_field(name="!close - Close's the tunnel", value= '3')
+    embed.add_field(name="!start - Start's tcp connection localhost:port -> ngrok", value= '4')
+    embed.add_field(name="!restart - Restart's connection to ngrok and send's new ip address", value= '5')
+    embed.add_field(name="!wrexik - shows info about creator", value= '6')
+    embed.add_field(name="!motd (Message) Edit's bots status", value= '7')
+    embed.add_field(name="!say (Message) - Repeat's message like a parrot 🦜", value= '8')
+    embed.add_field(name="!pes / !boba - Send's random picture of dog", value= '10')
+    embed.add_field(name="!meme - Post's random Meme", value= '11')
+    embed.add_field(name="!cat - Send's random picture of cat", value= '12')
+    embed.add_field(name="!dice - Rolls the dice", value= '13')
+    embed.set_author(name= bot_name, icon_url= bot_pfp)
+    await ctx.send(embed=embed)
+    print(f'{ctx.author} Requested help')
+
 @bot.command()
 async def motd(ctx, *args):
     print(f'{ctx.author} requested motd')
@@ -174,6 +208,10 @@ async def rekni(ctx, *args):
     for arg in args:
         response = response + " " + arg
     await ctx.channel.send(response)
+
+    await bot.change_presence(activity= discord.Streaming(name= message, url= twitch_link))
+    await ctx.send(f'{ctx.author.mention}'" changed status of the bot to "f'**{message}**!')
+
 
 @bot.command(aliases=['boba', 'guta', "peso"])
 async def pes(ctx):
