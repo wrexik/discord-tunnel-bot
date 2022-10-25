@@ -20,7 +20,7 @@ from traitlets import default
 bot_name = "Sitara"                               #change to your's bot name
 default_activity = "Tvoji Mamu 🤭"               #sets activity after connecting to dc
 twitch_username = "notwrexik"                    #your twitch username (lowercase only pls :D) ofc you can let it be like that 😉
-bot_secret = "OTEyNjk1ODE5NDY2MDQ3NTc4.GGfuH-.efTUhCNHeVmsXVH2nX2ZYOlsTJDFQKHl8uRobM" #paste your bot secret
+bot_secret = "" #paste your bot secret
 port = "25565"                                   #your minecraft server port
 bot_pfp = "https://i.postimg.cc/63vzgSPN/round-sitara.png" #your's bot profile picture
 
