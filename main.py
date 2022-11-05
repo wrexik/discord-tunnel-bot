@@ -1,8 +1,6 @@
 from ast import alias
-from email import message
 from ipaddress import ip_address
 import discord
-from numpy import roll
 from pyautogui import sleep
 from pyngrok import ngrok
 from discord.ext import commands
@@ -10,8 +8,6 @@ import os
 import aiohttp
 import requests
 import random
-
-from traitlets import default
 
 
 #Made with Love - Wrexik
